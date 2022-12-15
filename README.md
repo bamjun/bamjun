@@ -15,3 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 [![bamjun's GitHub stats](https://github-readme-stats.vercel.app/api?username=bamjun&show_icons=true&theme=radical)](https://github.com/bamjun)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=bamjun&theme=radical&layout=compact)](https://github.com/bamjun)
+
+<img src="https://raw.githubusercontent.com/kaname-png/bamjun/master/assets/github-contributions.svg" width="500" height="150" />
