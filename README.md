@@ -14,6 +14,8 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=bamjun&theme=radical&layout=compact)](https://github.com/bamjun)
+
 [![bamjun's GitHub stats](https://github-readme-stats.vercel.app/api?username=bamjun&show_icons=true&theme=radical)](https://github.com/bamjun)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=bamjun&theme=radical&layout=compact)](https://github.com/bamjun)
+
