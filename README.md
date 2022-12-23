@@ -21,6 +21,11 @@ Here are some ideas to get you started:
 
 
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+</head>
+<body>
 <!-- <<<<<<<<<<<<<네이버 애널리틱스 -->
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
@@ -31,3 +36,5 @@ wcs_do();
 }
 </script>
 <!-- >>>>>>>>>>>네이버에널리틱스 -->
+  </body>
+  </html>
