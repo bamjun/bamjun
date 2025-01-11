@@ -6,7 +6,7 @@
 
 <!-- https://github.com/anuraghazra/github-readme-stats -->
 <div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
-  <img src="https://github-readme-stats.vercel.app/api?username=bamjun&show_icons=true&theme=radical"
+  <img src="https://github-readme-stats.vercel.app/api?username=bamjun&show_icons=true&theme=jolly"
        style="height: 200px; object-fit: contain;" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bamjun&layout=compact"
        style="height: 200px; object-fit: contain;" />
@@ -15,8 +15,8 @@
 
 <!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
 <div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=transparent"
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=omni"
        style="width: 60%; height: "200px";" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=transparent&utcOffset=9"
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=omni&utcOffset=9"
        style="width: 30%; height: "200px";" />
 </div>
