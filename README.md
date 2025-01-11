@@ -16,7 +16,7 @@
 <!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
 <div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=jolly"
-       style="width: 60%; height: "200px";" />
+       style="width: 60%; height: 200px"; />
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=jolly&utcOffset=9"
-       style="width: 30%; height: "200px";" />
+       style="width: 30%; height: 200px"; />
 </div>
