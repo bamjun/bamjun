@@ -7,10 +7,11 @@
 <!-- https://github.com/anuraghazra/github-readme-stats -->
 <div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
   <img src="https://github-readme-stats.vercel.app/api?username=bamjun&show_icons=true&theme=radical"
-       style="width: 55%; height: "200px";" />
+       style="height: 200px; object-fit: contain;" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bamjun&layout=compact"
-       style="width: 35%; height: "200px";" />
+       style="height: 200px; object-fit: contain;" />
 </div>
+
 
 <!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
 <div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
