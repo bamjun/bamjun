@@ -12,7 +12,7 @@
 
 <!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
 <div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=transparent" alt="bamjun's GitHub stats" height="200px"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=transparent&utcOffset=9" alt="Top Langs" height="200px"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=transparent" height="200px"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=transparent&utcOffset=9" height="200px"/>
 </div>
 
