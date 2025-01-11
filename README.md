@@ -4,19 +4,12 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Honk&size=35&pause=1000&random=false&width=435&lines=HI%2C+there.+I'm+bamjun.+%F0%9F%91%8B)](https://git.io/typing-svg)
 
 
-<!-- https://github.com/anuraghazra/github-readme-stats -->
-<div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
-  <img src="https://github-readme-stats.vercel.app/api?username=bamjun&show_icons=true&theme=jolly"
-       style="height: 200px; object-fit: contain;" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bamjun&layout=compact"
-       style="height: 200px; object-fit: contain;" />
-</div>
+
 
 
 <!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
-<div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=jolly"
-       style="width: 60%; height: 200px; object-fit: contain;" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=jolly&utcOffset=9"
-       style="width: 30%; height: 200px; object-fit: contain;" />
-</div>
+![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=aura)
+![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=bamjun&theme=aura)
+![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=bamjun&theme=aura)
+![](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=bamjun&theme=aura)
+![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=aura&utcOffset=8)
