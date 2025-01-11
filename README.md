@@ -9,13 +9,13 @@
 
 <!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
 <div align="center">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=aura" width="100%">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=aura">
 </div>
 <div align="center">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=bamjun&theme=aura" width="100%">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=bamjun&theme=aura" width="100%">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=bamjun&theme=aura">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=bamjun&theme=aura">
 </div>
 <div align="center">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=bamjun&theme=aura" width="100%">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=aura&utcOffset=8" width="100%">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=bamjun&theme=aura">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=aura&utcOffset=8">
 </div>
