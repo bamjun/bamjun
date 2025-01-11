@@ -9,3 +9,10 @@
   <img src="https://github-readme-stats.vercel.app/api?username=bamjun&show_icons=true&theme=radical" alt="bamjun's GitHub stats" height="200px"/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bamjun&layout=compact" alt="Top Langs" height="200px"/>
 </div>
+
+<!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=transparent" alt="bamjun's GitHub stats" height="200px"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=transparent&utcOffset=9" alt="Top Langs" height="200px"/>
+</div>
+
