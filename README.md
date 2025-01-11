@@ -11,9 +11,10 @@
 </div>
 
 <!-- https://github.com/marketplace/actions/github-profile-summary-cards -->
-<div align="center">
+<div align="center" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=bamjun&theme=transparent"
-       height="200px" style="display:inline-block; margin-right: 10px;"/>
+       style="width: 45%; height: auto;" />
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=bamjun&theme=transparent&utcOffset=9"
-       height="200px" style="display:inline-block;"/>
+       style="width: 45%; height: auto;" />
 </div>
+
