@@ -5,7 +5,7 @@
   </a>
 
   <!-- 오른쪽 끝 -->
-  ![visitors](https://visitor-badge.glitch.me/badge?page_id=bamjun.bamjun&left_color=green&right_color=red)
+  ![Profile views](https://profile-counter.glitch.me/bamjun/count.svg)
 </div>
 
 
