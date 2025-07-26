@@ -4,8 +4,6 @@
     <img src="https://readme-typing-svg.demolab.com?font=Honk&size=35&pause=1000&random=false&width=435&lines=HI%2C+there.+I'm+bamjun.+%F0%9F%91%8B" alt="Typing SVG" />
   </a>
 
-  <!-- 오른쪽 끝 -->
-  ![Profile views](https://profile-counter.glitch.me/bamjun/count.svg)
 </div>
 
 
