@@ -1,0 +1,59 @@
+name: Generate GitHub Profile Summary Cards
+
+on:
+  # GitHub Actions 화면에서 직접 실행 가능
+  workflow_dispatch:
+
+  # 매일 한국시간 오전 9시 실행
+  # GitHub Actions cron은 UTC 기준
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-profile-summary-cards
+  cancel-in-progress: true
+
+jobs:
+  generate-profile-cards:
+    name: Generate profile summary cards
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Generate profile summary cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+        with:
+          # 내 GitHub 계정만 생성
+          USERNAME: bamjun
+
+          # 생성 결과를 저장할 브랜치
+          BRANCH_NAME: main
+
+          # 한국 시간 UTC+9
+          UTC_OFFSET: 9
+
+          # 현재 사용 중인 aura 테마만 생성
+          THEME: aura
+
+          # 제외할 언어가 없으므로 빈 값
+          EXCLUDE: ""
+
+          # 생성된 SVG 파일을 자동으로 커밋 및 푸시
+          AUTO_PUSH: true
+
+          # 애니메이션을 사용하지 않음
+          ANIMATION: ""
+
+          # 애니메이션을 사용하지 않으므로 빈 값
+          DURATION: ""
+
+          # 프로필 카드 표시 이름은 GitHub 기본값 사용
+          NAME: ""
