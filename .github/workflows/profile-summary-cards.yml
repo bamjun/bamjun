@@ -1,12 +1,11 @@
-name: Generate GitHub Profile Summary Cards
+name: Download GitHub Profile Summary Cards
 
 on:
-  # GitHub Actions 화면에서 직접 실행 가능
   workflow_dispatch:
 
-  # 매일 한국시간 오전 9시 실행
-  # GitHub Actions cron은 UTC 기준
   schedule:
+    # 매일 한국시간 오전 9시
+    # GitHub Actions cron은 UTC 기준
     - cron: "0 0 * * *"
 
 permissions:
@@ -17,43 +16,72 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  generate-profile-cards:
-    name: Generate profile summary cards
-
+  download-cards:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout profile repository
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v6
 
-      - name: Generate profile summary cards
-        uses: vn7n24fzkq/github-profile-summary-cards@release
-        env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
-        with:
-          # 내 GitHub 계정만 생성
-          USERNAME: bamjun
+      - name: Download profile cards
+        shell: bash
+        run: |
+          set -euo pipefail
 
-          # 생성 결과를 저장할 브랜치
-          BRANCH_NAME: main
+          OUTPUT_DIR="profile-summary-card-output/aura"
+          TEMP_DIR="$(mktemp -d)"
 
-          # 한국 시간 UTC+9
-          UTC_OFFSET: 9
+          BASE_URL="https://github-profile-summary-cards.vercel.app/api/cards"
 
-          # 현재 사용 중인 aura 테마만 생성
-          THEME: aura
+          curl --fail --location --retry 3 \
+            "${BASE_URL}/profile-details?username=bamjun&theme=aura" \
+            --output "${TEMP_DIR}/0-profile-details.svg"
 
-          # 제외할 언어가 없으므로 빈 값
-          EXCLUDE: ""
+          curl --fail --location --retry 3 \
+            "${BASE_URL}/repos-per-language?username=bamjun&theme=aura" \
+            --output "${TEMP_DIR}/1-repos-per-language.svg"
 
-          # 생성된 SVG 파일을 자동으로 커밋 및 푸시
-          AUTO_PUSH: true
+          curl --fail --location --retry 3 \
+            "${BASE_URL}/most-commit-language?username=bamjun&theme=aura" \
+            --output "${TEMP_DIR}/2-most-commit-language.svg"
 
-          # 애니메이션을 사용하지 않음
-          ANIMATION: ""
+          curl --fail --location --retry 3 \
+            "${BASE_URL}/stats?username=bamjun&theme=aura" \
+            --output "${TEMP_DIR}/3-stats.svg"
 
-          # 애니메이션을 사용하지 않으므로 빈 값
-          DURATION: ""
+          curl --fail --location --retry 3 \
+            "${BASE_URL}/productive-time?username=bamjun&theme=aura&utcOffset=9" \
+            --output "${TEMP_DIR}/4-productive-time.svg"
 
-          # 프로필 카드 표시 이름은 GitHub 기본값 사용
-          NAME: ""
+          # 정상적인 SVG 파일인지 확인
+          for file in "${TEMP_DIR}"/*.svg; do
+            if ! grep -q "<svg" "$file"; then
+              echo "::error file=$file::Downloaded file is not a valid SVG"
+              exit 1
+            fi
+          done
+
+          mkdir -p "${OUTPUT_DIR}"
+          cp "${TEMP_DIR}"/*.svg "${OUTPUT_DIR}/"
+
+          echo "Downloaded cards:"
+          ls -lh "${OUTPUT_DIR}"
+
+      - name: Commit downloaded cards
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add profile-summary-card-output/aura
+
+          if git diff --cached --quiet; then
+            echo "No card changes."
+            exit 0
+          fi
+
+          git commit -m "chore: update GitHub profile cards"
+          git push
