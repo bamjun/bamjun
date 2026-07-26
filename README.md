@@ -9,9 +9,6 @@
 
 <br />
 
-<!-- GitHub Profile Summary Cards -->
-<!-- GitHub Actions가 저장소 내부에 생성한 SVG 파일을 사용합니다. -->
-
 <div align="center">
   <img
     src="./profile-summary-card-output/aura/0-profile-details.svg"
