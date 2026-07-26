@@ -5,7 +5,6 @@ on:
 
   schedule:
     # 매일 한국시간 오전 9시
-    # GitHub Actions cron은 UTC 기준
     - cron: "0 0 * * *"
 
 permissions:
@@ -30,37 +29,83 @@ jobs:
 
           OUTPUT_DIR="profile-summary-card-output/aura"
           TEMP_DIR="$(mktemp -d)"
-
           BASE_URL="https://github-profile-summary-cards.vercel.app/api/cards"
 
-          curl --fail --location --retry 3 \
-            "${BASE_URL}/profile-details?username=bamjun&theme=aura" \
-            --output "${TEMP_DIR}/0-profile-details.svg"
+          download_card() {
+            local endpoint="$1"
+            local filename="$2"
+            local extra_query="${3:-}"
+            local temp_file="${TEMP_DIR}/${filename}"
 
-          curl --fail --location --retry 3 \
-            "${BASE_URL}/repos-per-language?username=bamjun&theme=aura" \
-            --output "${TEMP_DIR}/1-repos-per-language.svg"
+            for attempt in 1 2 3 4 5; do
+              echo "Downloading ${filename} — attempt ${attempt}/5"
 
-          curl --fail --location --retry 3 \
-            "${BASE_URL}/most-commit-language?username=bamjun&theme=aura" \
-            --output "${TEMP_DIR}/2-most-commit-language.svg"
+              curl \
+                --fail \
+                --silent \
+                --show-error \
+                --location \
+                --connect-timeout 15 \
+                --max-time 60 \
+                --user-agent "bamjun-profile-card-downloader" \
+                "${BASE_URL}/${endpoint}?username=bamjun&theme=aura${extra_query}" \
+                --output "${temp_file}"
 
-          curl --fail --location --retry 3 \
-            "${BASE_URL}/stats?username=bamjun&theme=aura" \
-            --output "${TEMP_DIR}/3-stats.svg"
+              # SVG 형식 확인
+              if ! grep -qi "<svg" "${temp_file}"; then
+                echo "Invalid SVG response."
+              # API가 반환한 오류 SVG인지 확인
+              elif grep -Eqi \
+                "ERROR|temporarily rate limited|rate.?limited|try again in a few minutes" \
+                "${temp_file}"; then
+                echo "Rate-limit error SVG received."
+              else
+                echo "Valid card downloaded: ${filename}"
+                return 0
+              fi
 
-          curl --fail --location --retry 3 \
-            "${BASE_URL}/productive-time?username=bamjun&theme=aura&utcOffset=9" \
-            --output "${TEMP_DIR}/4-productive-time.svg"
+              rm -f "${temp_file}"
 
-          # 정상적인 SVG 파일인지 확인
-          for file in "${TEMP_DIR}"/*.svg; do
-            if ! grep -q "<svg" "$file"; then
-              echo "::error file=$file::Downloaded file is not a valid SVG"
-              exit 1
-            fi
-          done
+              if [[ "${attempt}" -lt 5 ]]; then
+                echo "Waiting 30 seconds before retry..."
+                sleep 30
+              fi
+            done
 
+            echo "::error::Unable to download a valid ${filename}"
+            return 1
+          }
+
+          download_card \
+            "profile-details" \
+            "0-profile-details.svg"
+
+          sleep 5
+
+          download_card \
+            "repos-per-language" \
+            "1-repos-per-language.svg"
+
+          sleep 5
+
+          download_card \
+            "most-commit-language" \
+            "2-most-commit-language.svg"
+
+          sleep 5
+
+          download_card \
+            "stats" \
+            "3-stats.svg"
+
+          sleep 5
+
+          download_card \
+            "productive-time" \
+            "4-productive-time.svg" \
+            "&utcOffset=9"
+
+          # 5개가 전부 정상이어야 기존 파일을 교체
           mkdir -p "${OUTPUT_DIR}"
           cp "${TEMP_DIR}"/*.svg "${OUTPUT_DIR}/"
 
