@@ -29,7 +29,7 @@ jobs:
 
           OUTPUT_DIR="profile-summary-card-output/aura"
           TEMP_DIR="$(mktemp -d)"
-          BASE_URL="https://github-profile-summary-cards.vercel.app/api/cards"
+          BASE_URL="https://github-profile-summary-cards-sigma-opal.vercel.app/api/cards"
 
           download_card() {
             local endpoint="$1"
